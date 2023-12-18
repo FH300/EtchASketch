@@ -1,0 +1,14 @@
+.square {
+  background-color: rgb(161, 161, 161);
+  box-sizing: border-box;
+  height: 30px;
+  width: 30px;
+}
+
+#grid {
+  display: flex;
+  box-sizing: border-box;
+  width: 480px;
+  height: 480px;
+  flex-wrap: wrap;
+}
