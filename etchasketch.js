@@ -10,12 +10,14 @@ for (let i = 1; i <= 256; i++) {
 }
 
 document.querySelectorAll('.square').forEach(square => 
-  square.addEventListener('mouseover', () => {
-    square.style.backgroundColor = 'blue';
+  square.addEventListener('mousedown', () => {
+    document.querySelectorAll('.square').forEach(square => 
+      square.addEventListener('mouseover', () => {
+        square.style.backgroundColor = 'rgb(12, 15, 111)';
+    }));
 }));
 
 
-document.querySelectorAll('.square').forEach(square => 
-  square.addEventListener('mouseleave', () => {
-    square.style.backgroundColor = 'rgb(200, 200, 200)';
-}));
+
+
+
