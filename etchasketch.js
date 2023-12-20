@@ -11,14 +11,17 @@ for (let i = 1; i <= 256; i++) {
 
 let allSquares = document.querySelectorAll('.square');
 
-allSquares.forEach(square => 
-  square.addEventListener('mousedown', () => {
-    
-}));
 
 
-allSquares.forEach(square => 
+allSquares.forEach(square => {
   square.addEventListener('mouseover', () => {
+    isPressed = true;
     square.style.backgroundColor = 'rgb(12, 15, 111)';
-}));
+  })
+});
 
+allSquares.forEach(square => {
+  square.addEventListener('mouseover', () => {
+    isPressed = false;
+  })
+});
