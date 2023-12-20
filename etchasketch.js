@@ -9,15 +9,16 @@ for (let i = 1; i <= 256; i++) {
   square.textContent = '';
 }
 
-document.querySelectorAll('.square').forEach(square => 
+let allSquares = document.querySelectorAll('.square');
+
+allSquares.forEach(square => 
   square.addEventListener('mousedown', () => {
-    document.querySelectorAll('.square').forEach(square => 
-      square.addEventListener('mouseover', () => {
-        square.style.backgroundColor = 'rgb(12, 15, 111)';
-    }));
+    
 }));
 
 
-
-
+allSquares.forEach(square => 
+  square.addEventListener('mouseover', () => {
+    square.style.backgroundColor = 'rgb(12, 15, 111)';
+}));
 
