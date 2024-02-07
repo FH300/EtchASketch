@@ -2,13 +2,27 @@ body {
   display: flex;
 }
 
+#buttondiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#resolution {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+
 .square {
   background-color: rgb(200, 200, 200);
   box-sizing: border-box;
   height: 30px;
   width: 30px;
 }
-
 
 #grid {
   display: flex;
