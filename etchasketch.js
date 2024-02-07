@@ -11,17 +11,24 @@ for (let i = 1; i <= 256; i++) {
 
 let allSquares = document.querySelectorAll('.square');
 
+// drawColor WICHTIG. Definiert MAUSEVENTS und ZEICHNEN //
 
+let drawColor = false;
 
 allSquares.forEach(square => {
-  square.addEventListener('mouseover', () => {
-    isPressed = true;
+  square.addEventListener('mousedown', () => {
     square.style.backgroundColor = 'rgb(12, 15, 111)';
-  })
-});
+    drawColor = true;
+  });
 
-allSquares.forEach(square => {
+
+  square.addEventListener('mouseup', () => {
+    drawColor = false;
+  });
+
   square.addEventListener('mouseover', () => {
-    isPressed = false;
-  })
+    if(drawColor){
+      square.style.backgroundColor = 'rgb(12, 15, 111)'
+    }
+  });
 });
