@@ -2,33 +2,33 @@ const gridDiv = document.querySelector('#grid');
 let square = document.createElement('div');
 const resButton = document.querySelector('#resolution');
 let sideLength = 16;
-let newSideLength;
+let secSideLengt;
 
-function reRes() {
-  if (newSideLength <= 100) {
-    for (let i = 1; i <= newSideLength * newSideLength; i++) {
+
+function squareGrid(sideLength, secSideLength) {
+  for (let i = 1; i <= sideLength * secSideLength; i++) {
     square = document.createElement('div');
     square.setAttribute('class', 'square');
     gridDiv.appendChild(square);
     square.textContent = '';
-      // Loop funktioniert ohne Funktion //
-    }
-  } else {
-    for (let i = 1; i <= sideLength * sideLength; i++) {
-      square = document.createElement('div');
-      square.setAttribute('class', 'square');
-      gridDiv.appendChild(square);
-      square.textContent = '';
-        // Loop funktioniert ohne Funktion //
-      }
+    
+    // Loop funktioniert ohne Funktion //
   }
-}  
+}
+squareGrid(sideLength, secSideLengt);
 
 resButton.addEventListener('click', () => {
-  newSideLength = Number(prompt('Enter a number for squares per side', ''));
-  reRes();
+  sideLength = Number(prompt('Enter a number for squares per side', ''));
+  secSideLengt = sideLength;
+  squareGrid(sideLength, secSideLengt);
 });
 
+
+
+
+
+
+////////////////////////////////////////////////////////////////
 
 
 
