@@ -23,7 +23,7 @@ resButton.addEventListener('click', () => {
   squareGrid(sideLength, secSideLengt);
 });
 
-
+// Kann nicht zeichnen in squareGrid() //
 
 ///////////////////////////////////////////////////////////////
 
