@@ -1,26 +1,34 @@
 const gridDiv = document.querySelector('#grid');
 let square = document.createElement('div');
 const resButton = document.querySelector('#resolution');
-let sideLength;
-let resNumber;
+let sideLength = 16;
+let newSideLength;
 
 function reRes() {
-  resButton.addEventListener('click', () => {
-   sideLength= Number(prompt('Enter a Number for squares per side', ''));
-  });
-
-// Wieso geht das nicht // 
-  resNumber = sideLength;
-
-  for (let i = 1; i <= resNumber; i++) {
+  if (newSideLength <= 100) {
+    for (let i = 1; i <= newSideLength * newSideLength; i++) {
+    square = document.createElement('div');
+    square.setAttribute('class', 'square');
+    gridDiv.appendChild(square);
+    square.textContent = '';
+      // Loop funktioniert ohne Funktion //
+    }
+  } else {
+    for (let i = 1; i <= sideLength * sideLength; i++) {
       square = document.createElement('div');
       square.setAttribute('class', 'square');
       gridDiv.appendChild(square);
       square.textContent = '';
-      // Loop funktioniert ohne Funktion //
+        // Loop funktioniert ohne Funktion //
+      }
   }
-}
-reRes();
+}  
+
+resButton.addEventListener('click', () => {
+  newSideLength = Number(prompt('Enter a number for squares per side', ''));
+  reRes();
+});
+
 
 
 
