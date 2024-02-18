@@ -34,8 +34,8 @@ function squareGrid(sideLength, secSideLength) {
     });
   });
 
-  allSquares.style.height = 480 / sideLength;
-  allSquares.style.width = 480 / sideLength;
+  square.style.height = 480 / sideLength;
+  square.style.width = 480 / sideLength;
 }
 squareGrid(sideLength, secSideLength);
 
