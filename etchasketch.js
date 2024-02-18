@@ -14,6 +14,29 @@ function squareGrid(sideLength, secSideLength) {
     
     // Loop funktioniert ohne Funktion //
   }
+
+  let allSquares = document.querySelectorAll('.square');
+
+  // drawColor WICHTIG. Definiert MAUSEVENTS und ZEICHNEN //
+
+  let drawColor = false;
+
+  allSquares.forEach(square => {
+    square.addEventListener('mousedown', () => {
+      square.style.backgroundColor = 'rgb(12, 15, 111)';
+      drawColor = true;
+    });
+
+    square.addEventListener('mouseup', () => {
+      drawColor = false;
+    });
+
+    square.addEventListener('mouseover', () => {
+      if(drawColor){
+       square.style.backgroundColor = 'rgb(12, 15, 111)'
+      }
+    });
+  });
 }
 squareGrid(sideLength, secSideLengt);
 
@@ -23,34 +46,6 @@ resButton.addEventListener('click', () => {
   squareGrid(sideLength, secSideLengt);
 });
 
-// Kann nicht zeichnen in squareGrid() //
-
-///////////////////////////////////////////////////////////////
-
-
-
-let allSquares = document.querySelectorAll('.square');
-
-// drawColor WICHTIG. Definiert MAUSEVENTS und ZEICHNEN //
-
-let drawColor = false;
-
-allSquares.forEach(square => {
-  square.addEventListener('mousedown', () => {
-    square.style.backgroundColor = 'rgb(12, 15, 111)';
-    drawColor = true;
-  });
-
-  square.addEventListener('mouseup', () => {
-    drawColor = false;
-  });
-
-  square.addEventListener('mouseover', () => {
-    if(drawColor){
-      square.style.backgroundColor = 'rgb(12, 15, 111)'
-    }
-  });
-});
 
 
 
