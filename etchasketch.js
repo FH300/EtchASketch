@@ -1,8 +1,8 @@
 const gridDiv = document.querySelector('#grid');
 let square = document.createElement('div');
 const resButton = document.querySelector('#resolution');
-let sideLength = 16;
-let secSideLengt;
+let sideLength;
+let secSideLength;
 
 
 function squareGrid(sideLength, secSideLength) {
@@ -11,14 +11,10 @@ function squareGrid(sideLength, secSideLength) {
     square.setAttribute('class', 'square');
     gridDiv.appendChild(square);
     square.textContent = '';
-    
-    // Loop funktioniert ohne Funktion //
   }
 
   let allSquares = document.querySelectorAll('.square');
-
   // drawColor WICHTIG. Definiert MAUSEVENTS und ZEICHNEN //
-
   let drawColor = false;
 
   allSquares.forEach(square => {
@@ -37,13 +33,16 @@ function squareGrid(sideLength, secSideLength) {
       }
     });
   });
+
+  allSquares.style.height = 480 / sideLength;
+  allSquares.style.width = 480 / sideLength;
 }
-squareGrid(sideLength, secSideLengt);
+squareGrid(sideLength, secSideLength);
 
 resButton.addEventListener('click', () => {
   sideLength = Number(prompt('Enter a number for squares per side', ''));
-  secSideLengt = sideLength;
-  squareGrid(sideLength, secSideLengt);
+  secSideLength = sideLength;
+  squareGrid(sideLength, secSideLength);
 });
 
 
