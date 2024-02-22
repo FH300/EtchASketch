@@ -11,6 +11,8 @@ function squareGrid(sideLength, secSideLength) {
     square.setAttribute('class', 'square');
     gridDiv.appendChild(square);
     square.textContent = '';
+    square.style.height = 480 / sideLength;
+    square.style.width = 480 / sideLength;
   }
 
   let allSquares = document.querySelectorAll('.square');
@@ -33,9 +35,6 @@ function squareGrid(sideLength, secSideLength) {
       }
     });
   });
-
-  square.style.height = 480 / sideLength;
-  square.style.width = 480 / sideLength;
 }
 squareGrid(sideLength, secSideLength);
 
