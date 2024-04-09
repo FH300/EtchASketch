@@ -11,12 +11,13 @@ function squareGrid(sideLength, secSideLength) {
     square.setAttribute('class', 'square');
     gridDiv.appendChild(square);
     square.textContent = '';
-    square.style.height = 480 / sideLength;
-    square.style.width = 480 / sideLength;
+    // + "px" WICHTIG !!
+    square.style.height = 480 / sideLength + "px";
+    square.style.width = 480 / sideLength + "px";
   }
 
   let allSquares = document.querySelectorAll('.square');
-  // drawColor WICHTIG. Definiert MAUSEVENTS und ZEICHNEN //
+  // drawColor WICHTIG. Definiert MAUSEVENTS und ZEICHNEN 
   let drawColor = false;
 
   allSquares.forEach(square => {
@@ -43,9 +44,3 @@ resButton.addEventListener('click', () => {
   secSideLength = sideLength;
   squareGrid(sideLength, secSideLength);
 });
-
-
-
-
-
-

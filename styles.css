@@ -17,6 +17,14 @@ body {
   justify-content: center;
 }
 
+#color {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
 .square {
   background-color: rgb(200, 200, 200);
   box-sizing: border-box;
