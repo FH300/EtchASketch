@@ -1,12 +1,20 @@
 const gridDiv = document.querySelector('#grid');
 let square = document.createElement('div');
 const resButton = document.querySelector('#resolution');
+const colorButton = document.querySelector('#color');
+let squareArr = []
 let sideLength;
 let secSideLength;
 
-
 function squareGrid(sideLength, secSideLength) {
-  for (let i = 1; i <= sideLength * secSideLength; i++) {
+
+  if(squareArr.length > 0) {
+    for(let i = 0; i <= squareArr.length - 1; i++) {
+      squareArr[i].remove();
+    }
+  }
+
+  for(let i = 0; i <= sideLength * secSideLength - 1; i++) {
     square = document.createElement('div');
     square.setAttribute('class', 'square');
     gridDiv.appendChild(square);
@@ -14,15 +22,16 @@ function squareGrid(sideLength, secSideLength) {
     // + "px" WICHTIG !!
     square.style.height = 480 / sideLength + "px";
     square.style.width = 480 / sideLength + "px";
+    squareArr.push(square);
   }
 
   let allSquares = document.querySelectorAll('.square');
-  // drawColor WICHTIG. Definiert MAUSEVENTS und ZEICHNEN 
   let drawColor = false;
 
   allSquares.forEach(square => {
+
     square.addEventListener('mousedown', () => {
-      square.style.backgroundColor = 'rgb(12, 15, 111)';
+      square.style.backgroundColor = colorButton.value;
       drawColor = true;
     });
 
@@ -32,15 +41,20 @@ function squareGrid(sideLength, secSideLength) {
 
     square.addEventListener('mouseover', () => {
       if(drawColor){
-       square.style.backgroundColor = 'rgb(12, 15, 111)'
+       square.style.backgroundColor = colorButton.value;
       }
     });
   });
 }
-squareGrid(sideLength, secSideLength);
 
 resButton.addEventListener('click', () => {
+
   sideLength = Number(prompt('Enter a number for squares per side', ''));
   secSideLength = sideLength;
-  squareGrid(sideLength, secSideLength);
+
+  if (sideLength >= 100) {
+    alert("This number is too large")
+  } else {
+    squareGrid(sideLength, secSideLength);
+  }
 });
