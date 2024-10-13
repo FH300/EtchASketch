@@ -32,47 +32,36 @@ function squareGrid(sideLength, secSideLength) {
     return Math.floor(Math.random() * 256);
   }
 
-  if(randomizeButton.checked == true) {
-    let drawColor = false;
+  let drawColor = false;
 
-    allSquares.forEach(square => {
+  allSquares.forEach(square => {
 
-      square.addEventListener('mousedown', () => {
+    square.addEventListener('mousedown', () => {
+      if(randomizeButton.checked) {
         square.style.backgroundColor = `rgb(${randomRgb()}, ${randomRgb()}, ${randomRgb()})`;
         drawColor = true;
-      });
-
-      square.addEventListener('mouseup', () => {
-        drawColor = false;
-      });
-
-      square.addEventListener('mouseover', () => {
-        if(drawColor){
-          square.style.backgroundColor = `rgb(${randomRgb()}, ${randomRgb()}, ${randomRgb()})`;
-        }
-      });
-    });
-  } else {
-    let drawColor = false;
-
-    allSquares.forEach(square => {
-
-      square.addEventListener('mousedown', () => {
+      } else {
         square.style.backgroundColor = colorButton.value;
         drawColor = true;
-      });
-
-      square.addEventListener('mouseup', () => {
-        drawColor = false;
-      });
-
-      square.addEventListener('mouseover', () => {
-        if(drawColor){
-         square.style.backgroundColor = colorButton.value;
-        }
-      });
+      }
     });
-  }
+
+    square.addEventListener('mouseup', () => {
+      drawColor = false;
+    });
+
+    square.addEventListener('mouseover', () => {
+      if(drawColor){
+        if(randomizeButton.checked) {
+          square.style.backgroundColor = `rgb(${randomRgb()}, ${randomRgb()}, ${randomRgb()})`;
+          drawColor = true;
+        } else {
+          square.style.backgroundColor = colorButton.value;
+          drawColor = true;
+        }
+      }
+    });
+  });
 }
 
 resButton.addEventListener('click', () => {
