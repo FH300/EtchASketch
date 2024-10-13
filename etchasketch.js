@@ -2,6 +2,7 @@ const gridDiv = document.querySelector('#grid');
 let square = document.createElement('div');
 const resButton = document.querySelector('#resolution');
 const colorButton = document.querySelector('#color');
+const randomizeButton = document.querySelector('#checkbox');
 let squareArr = []
 let sideLength;
 let secSideLength;
@@ -26,25 +27,52 @@ function squareGrid(sideLength, secSideLength) {
   }
 
   let allSquares = document.querySelectorAll('.square');
-  let drawColor = false;
 
-  allSquares.forEach(square => {
+  function randomRgb() {
+    return Math.floor(Math.random() * 256);
+  }
 
-    square.addEventListener('mousedown', () => {
-      square.style.backgroundColor = colorButton.value;
-      drawColor = true;
+  if(randomizeButton.checked == true) {
+    let drawColor = false;
+
+    allSquares.forEach(square => {
+
+      square.addEventListener('mousedown', () => {
+        square.style.backgroundColor = `rgb(${randomRgb()}, ${randomRgb()}, ${randomRgb()})`;
+        drawColor = true;
+      });
+
+      square.addEventListener('mouseup', () => {
+        drawColor = false;
+      });
+
+      square.addEventListener('mouseover', () => {
+        if(drawColor){
+          square.style.backgroundColor = `rgb(${randomRgb()}, ${randomRgb()}, ${randomRgb()})`;
+        }
+      });
     });
+  } else {
+    let drawColor = false;
 
-    square.addEventListener('mouseup', () => {
-      drawColor = false;
-    });
+    allSquares.forEach(square => {
 
-    square.addEventListener('mouseover', () => {
-      if(drawColor){
-       square.style.backgroundColor = colorButton.value;
-      }
+      square.addEventListener('mousedown', () => {
+        square.style.backgroundColor = colorButton.value;
+        drawColor = true;
+      });
+
+      square.addEventListener('mouseup', () => {
+        drawColor = false;
+      });
+
+      square.addEventListener('mouseover', () => {
+        if(drawColor){
+         square.style.backgroundColor = colorButton.value;
+        }
+      });
     });
-  });
+  }
 }
 
 resButton.addEventListener('click', () => {
@@ -58,3 +86,10 @@ resButton.addEventListener('click', () => {
     squareGrid(sideLength, secSideLength);
   }
 });
+
+
+
+
+
+
+
